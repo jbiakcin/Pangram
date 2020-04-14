@@ -17,6 +17,7 @@ Pangram is a game where a player is given 7 letters, and he/she will make as man
   * Word-of-the-Day feature.
   
 ## WireFrames
+![](images/wireframe.png)
 
 ## Bonus Features
   * Timer feature.
