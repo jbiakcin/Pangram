@@ -6,6 +6,7 @@ Pangram is a game where a player is given 7 letters, and he/she will make as man
   * npm check-word
   * WordsAPI
   * WebPack
+  * HTML5
   
 ## MVP
   * Player can choose a color theme.
@@ -17,6 +18,7 @@ Pangram is a game where a player is given 7 letters, and he/she will make as man
   * Word-of-the-Day feature.
   
 ## WireFrames
+![](images/wireframe.png)
 
 ## Bonus Features
   * Timer feature.
