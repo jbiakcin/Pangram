@@ -1,0 +1,41 @@
+.game-background {
+  display: flex;
+  flex-direction: column;
+  background-color: grey;
+  align-items: center;
+  justify-content: center;
+}
+
+.game-body {
+  display: flex;
+  flex-direction: column;
+  width: 1000px;
+  height: 1000px;
+  border: 1px solid black;
+  background-color: white;
+}
+
+h1 {
+  align-self: center;
+}
+
+.top-line {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding: 25px;
+}
+
+.main-area {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding: 25px;
+}
+
+.links-and-rules {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding: 25px;
+}

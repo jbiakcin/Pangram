@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script type="application/javascript" src="./main.js"></script>
+      <link rel="stylesheet" href="../styles/reset.css">
+      <link rel="stylesheet" href="../styles/main.css">
+  <title>Pangram</title>
+</head>
+<body class="game-background">
+  <canvas id="game-canvas"></canvas>
+    <section class="game-body">
+      <h1>Pangram</h1>
+
+      <div class="top-line">
+        <div>
+          <p>Sound on/off</p>
+        </div>
+        <div class="current-word-div">
+          <p>Current Word</p>
+          <p id="current-word"></p>
+        </div>
+        <div class="submit">
+          <button id="submit-btn">submit</button>
+        </div>
+      </div>
+
+      <div class="main-area">
+        <div class="left-panel">
+          <div class="score">
+            <p class="score-title">Score</p>
+            <p id="score"></p>
+          </div>
+          <div class="shuffle">
+            <button id="shuffle-btn">Shuffle</button>
+          </div>
+          <div class="new-game">
+            <button id="new-game-btn">New Game</button>
+          </div>
+        </div>
+
+        <div class="main-game">
+          <button id="first-letter" class="choose"></button>
+          <button id="second-letter" class="choose"></button>
+          <button id="third-letter" class="choose"></button>
+          <button id="required-letter" class="choose"></button>
+          <button id="fourth-letter" class="choose"></button>
+          <button id="fifth-letter" class="choose"></button>
+          <button id="sixth-letter" class="choose"></button>
+        </div>
+
+        <div>
+          <p>Correct Words</p>
+          <span id="correct-words"></span>
+        </div>
+      </div>
+
+      <div class="links-and-rules">
+        <div>
+          <p>Nav links</p>
+        </div>
+
+        <div>
+          <p>Rules</p>
+        </div>
+      </div>
+    </section>
+</body>
+</html>

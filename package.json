@@ -1,0 +1,27 @@
+{
+  "name": "Pangram",
+  "version": "1.0.0",
+  "description": "Pangram is a game where a player is given 7 letters, and he/she will make as many words as possible.  Words must have at least a length of 4 letters, and there is a required letter player must use.",
+  "main": "index.js",
+  "dependencies": {
+    "check-word": "^1.1.0",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack --mode=development --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jbiakcin/Pangram.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jbiakcin/Pangram/issues"
+  },
+  "homepage": "https://github.com/jbiakcin/Pangram#readme"
+}
