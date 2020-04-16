@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script type="application/javascript" src=" ./dist/main.js"></script>
-  <link rel="stylesheet" href="../styles/reset.css">
-  <link rel="stylesheet" href="../styles/main.css">
-  <link rel="stylesheet" href="../styles/modal.css">
+  <link rel="stylesheet" href="./styles/reset.css">
+  <link rel="stylesheet" href="./styles/main.css">
+  <link rel="stylesheet" href="./styles/modal.css">
   <script src="https://kit.fontawesome.com/c40141444b.js" crossorigin="anonymous"></script>
   <title>Pangram</title>
 </head>
@@ -17,7 +17,7 @@
 
       <div class="top-line">
         <div>
-          <p>Sound on/off</p>
+          <button id="mute-button">Sound Off</button>
         </div>
         <div class="current-word-div">
           <p>Current Word</p>
@@ -36,7 +36,7 @@
             <p id="score"></p>
           </div>
           <div class="shuffle">
-            <button id="shuffle-btn">Shuffle</button>
+            <button id="shuffle-btn" class="audio" muted="true">Shuffle</button>
           </div>
           <div class="new-game">
             <button id="new-game-btn">New Game</button>

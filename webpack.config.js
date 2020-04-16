@@ -14,14 +14,15 @@ module.exports = {
           'css-loader',
           'sass-loader'
         ]
+      },
+      {
+        test: /\.mp3$/,
+        loader: 'file-loader'
       }
     ]
   },
   devtool: 'source-map',
   resolve: {
     extensions: ['.js', '.jsx', '*'],
-  },
-  node: {
-    fs: "empty"
   }
 };

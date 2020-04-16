@@ -1,6 +1,7 @@
 const wordList = require('./allWords.js').words;
 const letters = require('./gameLetters');
 const gameLetters = letters[Math.floor(Math.random() * letters.length)];
+// const shuffle = require('../sounds/Ninja Samurai Sword-SoundBible.com-1359598877.mp3')
 
 function Game () {
   this.reqLetters = gameLetters.reqLetters;
@@ -19,8 +20,9 @@ Game.prototype.populate = function populate() {
   document.getElementById("fourth-letter").innerText = this.optLetters[3];
   document.getElementById("fifth-letter").innerText = this.optLetters[4];
   document.getElementById("sixth-letter").innerText = this.optLetters[5];
-  document.getElementById("score").innerText=this.score;
+  document.getElementById("score").innerText = this.score;
   document.getElementById("current-word").innerText=this.currentWord.join("");
+  
 }
 
 Game.prototype.updateCorrectWords = function () {
@@ -57,9 +59,46 @@ Game.prototype.playGame = function playGame() {
     }
   };
 
+  //mute game
+  document.getElementById("mute-button").onclick = function muteAudio () {
+    // debugger;
+    // if (this.innerHTML === <i class='fas fa-volume-mute'></i>) {
+    //   this.innerHTML = <i class='fas fa-volume-off'></i>;
+    // } else {
+    //   this.innerHTML = <i class='fas fa-volume-mute'></i>;
+    // }
+    if (this.innerText === "Sound Off") {
+      this.innerText = "Sound On";
+    } else {
+      this.innerText = "Sound Off";
+    }
+    // if (game.muteStatus = '<i class="fas fa-volume-mute"></i>') {
+    //   game.muteStatus = '<i class="fas fa-volume-off"></i>';
+    // } else {
+    //   game.muteStatus = '<i class="fas fa-volume-mute"></i>'
+    // }
+    const audioList = document.getElementsByClassName("audio");
+    for (let i = 0; i < audioList.length; i++) {
+      let audioTag = audioList[i];
+      if (audioTag.getAttribute("muted") === "false") {
+        audioTag.setAttribute("muted", "true")
+      } else {
+        audioTag.setAttribute("muted", "false")
+      }
+    }
+  }
+
+  //play particular sounds
+  function playSound(url) {
+    new Audio(url).play();
+  }
+
   //shuffle letters on the board
   document.getElementById("shuffle-btn").onclick = function shuffle() {
     optLetters.sort(() => Math.random() -0.5);
+    if (this.getAttribute("muted") === "true"){
+    playSound('sounds/shuffle.mp3');
+    }
     game.populate();
   };
 
@@ -90,6 +129,7 @@ Game.prototype.playGame = function playGame() {
       rulesModal.className = "modal"
     }
   };
+
 
   //submit the correct word into the "correct words" list
   document.getElementById("submit-btn").onclick = function submitWord() {
