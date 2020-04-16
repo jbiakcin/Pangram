@@ -110,7 +110,10 @@ Game.prototype.playGame = function playGame() {
 
   //start a new game
   document.getElementById("new-game-btn").onclick = function newGame() {
+    
+    if (window.confirm("Are you sure you want to start a new game?")) {
     location.reload();
+    }
   };
 
   //rules modal
