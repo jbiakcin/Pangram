@@ -39,3 +39,9 @@ h1 {
   justify-content: space-evenly;
   padding: 25px;
 }
+
+.nav-icons {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+}

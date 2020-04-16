@@ -3,9 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script type="application/javascript" src="./main.js"></script>
-      <link rel="stylesheet" href="../styles/reset.css">
-      <link rel="stylesheet" href="../styles/main.css">
+  <script type="application/javascript" src="main.js"></script>
+  <link rel="stylesheet" href="../styles/reset.css">
+  <link rel="stylesheet" href="../styles/main.css">
+  <link rel="stylesheet" href="../styles/modal.css">
+  <script src="https://kit.fontawesome.com/c40141444b.js" crossorigin="anonymous"></script>
   <title>Pangram</title>
 </head>
 <body class="game-background">
@@ -20,6 +22,7 @@
         <div class="current-word-div">
           <p>Current Word</p>
           <p id="current-word"></p>
+          <button id="delete-btn"><i class="fas fa-backspace"></i></button>
         </div>
         <div class="submit">
           <button id="submit-btn">submit</button>
@@ -52,17 +55,45 @@
 
         <div>
           <p>Correct Words</p>
-          <span id="correct-words"></span>
+          <ul id="correct-words"></ul>
         </div>
       </div>
 
-      <div class="links-and-rules">
+      <div id="rules-modal" class="modal hidden">
         <div>
-          <p>Nav links</p>
+          <p>
+            The goal is to identify as many words as possible while meeting the 
+            following criteria:
+          </p>
+          <ul>
+            <li>The word must be at least four letters long.</li>
+            <li>The word must include the central letter.</li>
+            <li>Letters can be repeated.</li>
+          </ul>
+          <p>
+            Click on the letters you would like to add to the correct word.
+            Click "submit" to add to the "correct words" list.
+            Click "shuffle" to see a different arrangement of letters.
+          </p>
+          <button id="rules-close-button">Close</button>
+        </div>
+      </div>
+      </div>
+
+      <div class="links-and-rules">
+        <div id="nav" class="nav-links">         
+          <ul class="nav-icons">
+            <li key="email" class="contact-email"><a href="mailto: jbiakcin@icloud.com"><i class="far fa-envelope"></i></a>
+            </li>
+            <li key="github" class="contact-github"><a href="https://github.com/jbiakcin"><i class="fab fa-github"></i></a>
+            </li>
+            <li key="linkedin" class="contact-linkedin"><a href="https://www.linkedin.com/in/jennie-richardson-1531881a5/"><i
+                  class="fab fa-linkedin"></i></a></li>
+          </ul>
         </div>
 
         <div>
-          <p>Rules</p>
+          <button id="rules-button">Rules</button>
         </div>
       </div>
     </section>

@@ -1,0 +1,25 @@
+.modal {
+  /* position: absolute; */
+  /* top: 280px; */
+  /* width: 386px; */
+  /* left: 50%; */
+  /* transform: translateX(-50%); */
+  background-color: pink;
+  border-radius: 2px;
+  text-align: center;
+}
+
+/* #rules-modal {
+  top: 180px;
+} */
+
+.modal.hidden {
+  display: none;
+}
+
+.modal div {
+  margin: 5px;
+  padding: 20px 10px;
+  border: 1px solid #002e9a;
+  border-radius: 2px;
+}
