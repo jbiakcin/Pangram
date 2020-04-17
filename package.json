@@ -4,6 +4,7 @@
   "description": "Pangram is a game where a player is given 7 letters, and he/she will make as many words as possible.  Words must have at least a length of 4 letters, and there is a required letter player must use.",
   "main": "index.js",
   "dependencies": {
+    "animate.css": "^3.7.2",
     "check-word": "^1.1.0",
     "fs": "0.0.1-security",
     "tone": "^13.8.25",

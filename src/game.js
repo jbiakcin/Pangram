@@ -1,7 +1,6 @@
 const wordList = require('./allWords.js').words;
 const letters = require('./gameLetters');
 const gameLetters = letters[Math.floor(Math.random() * letters.length)];
-// const shuffle = require('../sounds/Ninja Samurai Sword-SoundBible.com-1359598877.mp3')
 
 function Game () {
   this.reqLetters = gameLetters.reqLetters;
@@ -9,6 +8,7 @@ function Game () {
   this.currentWord = [];
   this.correctWords = [];
   this.score = 0;
+  this.level = "n00b";
 }
 
 //display game on board with all the info in the current game
@@ -21,6 +21,8 @@ Game.prototype.populate = function populate() {
   document.getElementById("fifth-letter").innerText = this.optLetters[4];
   document.getElementById("sixth-letter").innerText = this.optLetters[5];
   document.getElementById("score").innerText = this.score;
+  document.getElementById("level").innerText = this.level;
+  document.getElementById("num-correct-words").innerText = this.correctWords.length;
   document.getElementById("current-word").innerText=this.currentWord.join("");
   
 }
@@ -37,10 +39,45 @@ Game.prototype.updateCorrectWords = function () {
     let words;
     let li = document.createElement("li");
 
+    const animations = [
+      'animated',
+      'zoomInUp'
+    ];
+    li.classList.add(...animations);
     li.appendChild(document.createTextNode(this.correctWords[i]));
     ul.appendChild(li);
 
     words += `<li class="list-items">` + this.correctWords[i] + `</li>`;
+  }
+}
+
+Game.prototype.updateScore = function updateScore() {
+  if (this.currentWord.length === 4) {
+    this.score += 3;
+  } else if (this.currentWord.length === 5) {
+    this.score += 4;
+  } else if (this.currentWord.length === 6) {
+    this.score += 7;
+  } else if (this.currentWord.length === 7) {
+    this.score += 10;
+  } else {
+    this.socre += 15;
+  }
+}
+
+Game.prototype.updateLevel = function updateLevel() {
+  if (this.score < 10) {
+    this.level = "n00b";
+  } else if (this.score >= 10 && this.score < 20) {
+    this.level = "Solid";
+  } else if (this.score >= 20 && this.score < 30) {
+    this.level = "On Fire";
+  } else if (this.score >= 30 && this.score < 40) {
+    this.level = "Killer";
+  } else if (this.score >= 40 && this.score < 50) {
+    this.level = "Mad Skillz";
+  } else {
+    this.level = "Einstein";
   }
 }
 
@@ -62,15 +99,15 @@ Game.prototype.playGame = function playGame() {
   //mute game
   document.getElementById("mute-button").onclick = function muteAudio () {
     // debugger;
-    // if (this.innerHTML === <i class='fas fa-volume-mute'></i>) {
-    //   this.innerHTML = <i class='fas fa-volume-off'></i>;
+    // if (this.innerText === "<i class='fas fa-volume-mute'></i>") {
+    //   this.innerText = "<i class='fas fa-volume-off'></i>";
     // } else {
-    //   this.innerHTML = <i class='fas fa-volume-mute'></i>;
+    //   this.innerText = "<i class='fas fa-volume-mute'></i>";
     // }
-    if (this.innerText === "Sound Off") {
-      this.innerText = "Sound On";
+    if (this.innerText === "Mute") {
+      this.innerText = "Unmute";
     } else {
-      this.innerText = "Sound Off";
+      this.innerText = "Mute";
     }
     // if (game.muteStatus = '<i class="fas fa-volume-mute"></i>') {
     //   game.muteStatus = '<i class="fas fa-volume-off"></i>';
@@ -111,6 +148,20 @@ Game.prototype.playGame = function playGame() {
   //start a new game
   document.getElementById("new-game-btn").onclick = function newGame() {
     
+    // swal({
+    //   title: "Are you sure?",
+    //   type: "warning",
+    //   showCancelButton: true,
+    //   confirmButtonColor: '#DD6B55',
+    //   confirmButtonText: 'Yes, I am sure!',
+    //   cancelButtonText: "No, cancel it!", 
+    //   closeOnConfirm: false,
+    //   closeOnCancel: false
+    // }).then(
+    //   function () { location.reload() },
+    //   function () { return false; });
+
+
     if (window.confirm("Are you sure you want to start a new game?")) {
     location.reload();
     }
@@ -137,15 +188,52 @@ Game.prototype.playGame = function playGame() {
   //submit the correct word into the "correct words" list
   document.getElementById("submit-btn").onclick = function submitWord() {
     if (!game.currentWord.includes(reqLetters[0])) {
-      window.alert("Must include the required letter")
+      swal({
+        title: "Missing required letter.",
+        icon: "error",
+        buttons: false,
+        dangerMode: true,
+        timer: 1000
+      })
     } else if (game.currentWord.length < 4) {
-      window.alert("Must be at least 4 letters")
+      swal({
+        title: "Too Short",
+        icon: "error",
+        buttons: false,
+        dangerMode: true,
+        timer: 1000
+      })
     } else if (!wordList.includes(game.currentWord.join("").toLowerCase())) {
-      window.alert("Not a valid word")
+      swal({
+        title: "Not a Word!",
+        icon: "error",
+        buttons: false,
+        dangerMode: true,
+        timer: 1000
+      })
+    } else if (game.correctWords.includes(game.currentWord.join(""))) {
+      swal({
+        title: "Already Found!",
+        icon: "warning",
+        buttons: false,
+        dangerMode: true,
+        timer: 1000
+      })
     } else {
+      const uniqueArray = [...new Set(game.currentWord)]
+      if (uniqueArray.length === 7) {
+      swal({
+        title: "Pangram!!!!!",
+        icon: "success",
+        type: "info",
+        timer: 1000
+      });
+      game.score += 5;
+      }
       game.correctWords.push(game.currentWord.join(""));
       game.correctWords.sort();
-      game.score += game.currentWord.length;
+      game.updateScore();
+      game.updateLevel();
       game.updateCorrectWords();
       game.currentWord = [];
     };

@@ -77,3 +77,14 @@ input[type="submit"] {
     background: transparent;
     font-family: Open Sans, Open Sans Hebrew, Arial;;
 } */
+
+button {
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+    border: 2.5px solid white;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}

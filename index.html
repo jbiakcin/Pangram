@@ -8,56 +8,78 @@
   <link rel="stylesheet" href="./styles/main.css">
   <link rel="stylesheet" href="./styles/modal.css">
   <script src="https://kit.fontawesome.com/c40141444b.js" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
   <title>Pangram</title>
 </head>
-<body class="game-background">
-  <canvas id="game-canvas"></canvas>
-    <section class="game-body">
-      <h1>Pangram</h1>
-
-      <div class="top-line">
-        <div>
-          <button id="mute-button">Sound Off</button>
+<body class="game-canvas">
+  <!-- <canvas ></canvas> -->
+  <h1>PANGRAM</h1>
+  <section class="game-body">
+    <div class="top-line">
+      <div class="mute-button">
+        <div class="score">
+          <p class="score-title">Score</p>
+          <p id="score"></p>
         </div>
-        <div class="current-word-div">
-          <p>Current Word</p>
+      </div>
+      <div class="current-word-div">
+        <div class="current-word-and-delete">
           <p id="current-word"></p>
           <button id="delete-btn"><i class="fas fa-backspace"></i></button>
         </div>
-        <div class="submit">
-          <button id="submit-btn">submit</button>
+      </div>
+      <div class="submit">
+        <p id="rules-button">?</p>
+        <p id="mute-button">Mute</p>
+      </div>
+    </div>
+
+    <div class="main-area">
+      <div class="left-panel">
+        
+        <div class="level">
+          <p class="level-title">Level</p>
+          <p id="level"></p>
         </div>
+
       </div>
 
-      <div class="main-area">
-        <div class="left-panel">
-          <div class="score">
-            <p class="score-title">Score</p>
-            <p id="score"></p>
+      <div class="main-game">
+        <div class="letter-area">
+          <div class="row">
+            <button id="first-letter" class="choose opt"></button>
+            <button id="second-letter" class="choose opt"></button>
           </div>
+          <div class="row">
+            <button id="third-letter" class="choose opt"></button>
+            <button id="required-letter" class="choose req"></button>
+            <button id="fourth-letter" class="choose opt"></button>
+          </div>
+          <div class="row">
+            <button id="fifth-letter" class="choose opt"></button>
+            <button id="sixth-letter" class="choose opt"></button>
+          </div>
+        </div>
+        <div class="shuffle-newgame">
           <div class="shuffle">
-            <button id="shuffle-btn" class="audio" muted="true">Shuffle</button>
+            <button id="shuffle-btn" class="audio" muted="true"><i class="fas fa-random"></i>&nbsp;&nbsp;Shuffle</button>
           </div>
           <div class="new-game">
-            <button id="new-game-btn">New Game</button>
+            <button id="submit-btn"><i class="far fa-check-square"></i>&nbsp;&nbsp;Enter</button>
           </div>
         </div>
-
-        <div class="main-game">
-          <button id="first-letter" class="choose"></button>
-          <button id="second-letter" class="choose"></button>
-          <button id="third-letter" class="choose"></button>
-          <button id="required-letter" class="choose"></button>
-          <button id="fourth-letter" class="choose"></button>
-          <button id="fifth-letter" class="choose"></button>
-          <button id="sixth-letter" class="choose"></button>
-        </div>
-
-        <div>
-          <p>Correct Words</p>
-          <ul id="correct-words"></ul>
-        </div>
       </div>
+
+      <div class="right-panel">
+        <div class="word-count">
+          <p>Correct Words:&nbsp;&nbsp;</p><p id="num-correct-words"></p>
+        </div>
+        <ul id="correct-words"></ul>
+      </div>
+    </div>
+
+    <div class="links-and-rules">
 
       <div id="rules-modal" class="modal hidden">
         <div>
@@ -78,24 +100,23 @@
           <button id="rules-close-button">Close</button>
         </div>
       </div>
+
+      <div>
+        <button id="new-game-btn">New Game</button>
       </div>
 
-      <div class="links-and-rules">
-        <div id="nav" class="nav-links">         
-          <ul class="nav-icons">
-            <li key="email" class="contact-email"><a href="mailto: jbiakcin@icloud.com"><i class="far fa-envelope"></i></a>
-            </li>
-            <li key="github" class="contact-github"><a href="https://github.com/jbiakcin"><i class="fab fa-github"></i></a>
-            </li>
-            <li key="linkedin" class="contact-linkedin"><a href="https://www.linkedin.com/in/jennie-richardson-1531881a5/"><i
-                  class="fab fa-linkedin"></i></a></li>
-          </ul>
-        </div>
-
-        <div>
-          <button id="rules-button">Rules</button>
-        </div>
+          
+      <div id="nav" class="nav-links">
+        <ul class="nav-icons">
+          <li key="email" class="contact-email"><a href="mailto: jbiakcin@icloud.com"><i class="far fa-envelope"></i></a>
+          </li>
+          <li key="github" class="contact-github"><a href="https://github.com/jbiakcin"><i class="fab fa-github"></i></a>
+          </li>
+          <li key="linkedin" class="contact-linkedin"><a href="https://www.linkedin.com/in/jennie-richardson-1531881a5/"><i
+                class="fab fa-linkedin"></i></a></li>
+        </ul>
       </div>
-    </section>
+    </div>
+  </section>
 </body>
 </html>
