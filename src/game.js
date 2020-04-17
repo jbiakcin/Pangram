@@ -24,7 +24,6 @@ Game.prototype.populate = function populate() {
   document.getElementById("level").innerText = this.level;
   document.getElementById("num-correct-words").innerText = this.correctWords.length;
   document.getElementById("current-word").innerText=this.currentWord.join("");
-  
 }
 
 Game.prototype.updateCorrectWords = function () {
@@ -91,6 +90,7 @@ Game.prototype.playGame = function playGame() {
   
   for (let i = 0; i < 7; i++) {
     letters[i].onclick = function makeWord() {
+      playSound('sounds/blop.mp3');
       game.currentWord.push(letters[i].innerText);
       document.getElementById("current-word").innerText = game.currentWord.join("");
     }
@@ -139,7 +139,7 @@ Game.prototype.playGame = function playGame() {
   //start a new game
   document.getElementById("new-game-btn").onclick = function newGame() {
     if (window.confirm("Are you sure you want to start a new game?")) {
-    location.reload();
+      location.reload();
     }
   };
 
@@ -198,18 +198,20 @@ Game.prototype.playGame = function playGame() {
     } else {
       const uniqueArray = [...new Set(game.currentWord)]
       if (uniqueArray.length === 7) {
-      swal({
-        title: "Pangram!!!!!",
-        icon: "success",
-        type: "info",
-        timer: 1000
-      });
-      game.score += 5;
+        game.score += 15;
+        playSound('sounds/applause8.mp3');
+        swal({
+          title: "Pangram!!!!!",
+          icon: "success",
+          type: "info",
+          timer: 1000
+        });
       }
       game.correctWords.push(game.currentWord.join(""));
       game.correctWords.sort();
       game.updateScore();
       game.updateLevel();
+      playSound('sounds/cha-ching.mp3');
       game.updateCorrectWords();
       game.currentWord = [];
     };
