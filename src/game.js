@@ -11,7 +11,6 @@ function Game () {
   this.level = "n00b";
 }
 
-//display game on board with all the info in the current game
 Game.prototype.populate = function populate() {
   document.getElementById("required-letter").innerText = this.reqLetters[0];
   document.getElementById("first-letter").innerText = this.optLetters[0];
@@ -40,13 +39,20 @@ Game.prototype.updateCorrectWords = function () {
 
     const animations = [
       'animated',
-      'zoomInUp'
+      'slideInUp'
     ];
     li.classList.add(...animations);
     li.appendChild(document.createTextNode(this.correctWords[i]));
     ul.appendChild(li);
 
     words += `<li class="list-items">` + this.correctWords[i] + `</li>`;
+  }
+}
+
+Game.prototype.animate = function () {
+  let optLetters = document.getElementsByClassName("opt");
+  for (let i = 0; i < optLetters.length; i++) {
+    optLetters[i].classList.toggle("is-moved");
   }
 }
 
@@ -80,7 +86,7 @@ Game.prototype.updateLevel = function updateLevel() {
   }
 }
 
-//play game
+
 Game.prototype.playGame = function playGame() {
   const letters = document.getElementsByClassName("choose")
   const game = this;
@@ -130,6 +136,7 @@ Game.prototype.playGame = function playGame() {
       playSound('sounds/shuffle.mp3');
     }
     game.populate();
+    game.animate();
   };
 
   //delete a letter
@@ -166,6 +173,7 @@ Game.prototype.playGame = function playGame() {
   //submit the correct word into the "correct words" list
   document.getElementById("submit-btn").onclick = function submitWord() {
     if (!game.currentWord.includes(reqLetters[0])) {
+      game.currentWord = [];
       swal({
         title: "Missing required letter.",
         icon: "error",
@@ -174,6 +182,7 @@ Game.prototype.playGame = function playGame() {
         timer: 1000
       })
     } else if (game.currentWord.length < 4) {
+      game.currentWord = [];
       swal({
         title: "Too Short",
         icon: "error",
@@ -182,6 +191,7 @@ Game.prototype.playGame = function playGame() {
         timer: 1000
       })
     } else if (!wordList.includes(game.currentWord.join("").toLowerCase())) {
+      game.currentWord = [];
       swal({
         title: "Not a Word!",
         icon: "error",
@@ -190,6 +200,7 @@ Game.prototype.playGame = function playGame() {
         timer: 1000
       })
     } else if (game.correctWords.includes(game.currentWord.join(""))) {
+      game.currentWord = [];
       swal({
         title: "Already Found!",
         icon: "warning",

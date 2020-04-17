@@ -64,6 +64,7 @@
   /* background-color: rgba(63,255,106,0.69); */
   border: 3px solid grey;
   width: 200px;
+  padding-bottom: 10px;
 }
 
 .swal-title {
