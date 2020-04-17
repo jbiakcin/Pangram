@@ -74,7 +74,7 @@ Game.prototype.updateLevel = function updateLevel() {
     this.level = "On Fire";
   } else if (this.score >= 30 && this.score < 40) {
     this.level = "Killer";
-  } else if (this.score >= 40 && this.score < 50) {
+  } else if (this.score >= 40 && this.score <= 50) {
     this.level = "Mad Skillz";
   } else {
     this.level = "Einstein";
@@ -98,22 +98,13 @@ Game.prototype.playGame = function playGame() {
 
   //mute game
   document.getElementById("mute-button").onclick = function muteAudio () {
-    // debugger;
-    // if (this.innerText === "<i class='fas fa-volume-mute'></i>") {
-    //   this.innerText = "<i class='fas fa-volume-off'></i>";
-    // } else {
-    //   this.innerText = "<i class='fas fa-volume-mute'></i>";
-    // }
+
     if (this.innerText === "Mute") {
       this.innerText = "Unmute";
     } else {
       this.innerText = "Mute";
     }
-    // if (game.muteStatus = '<i class="fas fa-volume-mute"></i>') {
-    //   game.muteStatus = '<i class="fas fa-volume-off"></i>';
-    // } else {
-    //   game.muteStatus = '<i class="fas fa-volume-mute"></i>'
-    // }
+
     const audioList = document.getElementsByClassName("audio");
     for (let i = 0; i < audioList.length; i++) {
       let audioTag = audioList[i];

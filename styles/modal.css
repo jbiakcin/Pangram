@@ -1,17 +1,52 @@
-.modal {
-  /* position: absolute; */
-  /* top: 280px; */
-  /* width: 386px; */
-  /* left: 50%; */
-  /* transform: translateX(-50%); */
-  background-color: pink;
-  border-radius: 2px;
-  text-align: center;
+#rules-button {
+  position: relative;
 }
 
-/* #rules-modal {
+.modal {
+  position: absolute;
+  top: 280px;
+  width: 386px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #8ee4af;
+  border-radius: 5px;
+  color: black;
+}
+
+#rules-modal {
   top: 180px;
-} */
+  font-size: 10px;
+}
+
+.rules-ul {
+  margin-bottom: 25px;
+}
+.rules-ul p {
+  font-weight: bold;
+}
+
+.levels-ul p {
+  font-weight: bold;
+}
+
+ .rules-levels-li {
+  padding-left: 25px;
+  font-size: 10px;
+}
+
+#rules-close-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  border: none;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  margin-bottom: 5px;
+}
+
+#rules-close-button button {
+  font-size: 8px;
+}
 
 .modal.hidden {
   display: none;
@@ -20,7 +55,7 @@
 .modal div {
   margin: 5px;
   padding: 20px 10px;
-  border: 1px solid #002e9a;
+  border: 1px solid black;
   border-radius: 2px;
 }
 

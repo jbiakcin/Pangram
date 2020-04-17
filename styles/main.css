@@ -164,6 +164,7 @@ h1 {
 
 #required-letter:hover {
   background-color: #ffe198;
+  color: black;
 }
 
 .opt {
@@ -177,26 +178,32 @@ h1 {
 
 #first-letter:hover {
   background-color: #8ee4af;
+  color: black;
 }
 
 #second-letter:hover {
   background-color: #8ee4af;
+  color: black;
 }
 
 #third-letter:hover {
   background-color: #8ee4af;
+  color: black;
 }
 
 #fourth-letter:hover {
   background-color: #8ee4af;
+  color: black;
 }
 
 #fifth-letter:hover {
   background-color: #8ee4af;
+  color: black;
 }
 
 #sixth-letter:hover {
   background-color: #8ee4af;
+  color: black;
 }
 
 .shuffle-newgame {
@@ -207,7 +214,7 @@ h1 {
 }
 
 .shuffle button {
-  background-color: black;
+  /* background-color: black; */
   color: white;
   border-radius: 10px;
   margin-right: 10px;
@@ -231,6 +238,10 @@ h1 {
   font-size: 13px;
 }
 
+#rules-button:hover {
+  background-color: #287fb8;
+}
+
 #mute-button {
   height: 20px;
   border: 2.5px solid white;
@@ -239,6 +250,10 @@ h1 {
   padding-right: 5px;
   font-size: 10px;
   padding-top: 2px;
+}
+
+#mute-button:hover {
+  background-color: #287fb8;
 }
 
 .nav-links {
