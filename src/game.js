@@ -90,7 +90,9 @@ Game.prototype.playGame = function playGame() {
   
   for (let i = 0; i < 7; i++) {
     letters[i].onclick = function makeWord() {
-      playSound('sounds/blop.mp3');
+      if (this.getAttribute("muted") === "false"){
+        playSound('sounds/blop.mp3');
+      }
       game.currentWord.push(letters[i].innerText);
       document.getElementById("current-word").innerText = game.currentWord.join("");
     }
@@ -124,8 +126,8 @@ Game.prototype.playGame = function playGame() {
   //shuffle letters on the board
   document.getElementById("shuffle-btn").onclick = function shuffle() {
     optLetters.sort(() => Math.random() -0.5);
-    if (this.getAttribute("muted") === "true"){
-    playSound('sounds/shuffle.mp3');
+    if (this.getAttribute("muted") === "false"){
+      playSound('sounds/shuffle.mp3');
     }
     game.populate();
   };
@@ -199,7 +201,9 @@ Game.prototype.playGame = function playGame() {
       const uniqueArray = [...new Set(game.currentWord)]
       if (uniqueArray.length === 7) {
         game.score += 15;
-        playSound('sounds/applause8.mp3');
+        if (this.getAttribute("muted") === "false") {
+          playSound('sounds/applause8.mp3');
+        }
         swal({
           title: "Pangram!!!!!",
           icon: "success",
@@ -211,7 +215,9 @@ Game.prototype.playGame = function playGame() {
       game.correctWords.sort();
       game.updateScore();
       game.updateLevel();
-      playSound('sounds/cha-ching.mp3');
+      if (this.getAttribute("muted") === "false") {
+        playSound('sounds/cha-ching.mp3');
+      }
       game.updateCorrectWords();
       game.currentWord = [];
     };
