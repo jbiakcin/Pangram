@@ -17,21 +17,43 @@
   <h1>PANGRAM</h1>
   <section class="game-body">
     <div class="top-line">
-      <div class="mute-button">
+
+      <div class="score-div">
         <div class="score">
           <p class="score-title">Score</p>
           <p id="score"></p>
         </div>
       </div>
+
       <div class="current-word-div">
         <div class="current-word-and-delete">
           <p id="current-word"></p>
           <button id="delete-btn"><i class="fas fa-backspace"></i></button>
         </div>
       </div>
-      <div class="submit">
+
+      <div class="rules-mute">
         <p id="rules-button">?</p>
         <p id="mute-button">Mute</p>
+        <div id="rules-modal" class="modal hidden">
+          <div>
+            <p>
+              The goal is to identify as many words as possible while meeting the
+              following criteria:
+            </p>
+            <ul>
+              <li>The word must be at least four letters long.</li>
+              <li>The word must include the central letter.</li>
+              <li>Letters can be repeated.</li>
+            </ul>
+            <p>
+              Click on the letters you would like to add to the correct word.
+              Click "submit" to add to the "correct words" list.
+              Click "shuffle" to see a different arrangement of letters.
+            </p>
+            <button id="rules-close-button">Close</button>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -65,7 +87,7 @@
           <div class="shuffle">
             <button id="shuffle-btn" class="audio" muted="true"><i class="fas fa-random"></i>&nbsp;&nbsp;Shuffle</button>
           </div>
-          <div class="new-game">
+          <div class="enter">
             <button id="submit-btn"><i class="far fa-check-square"></i>&nbsp;&nbsp;Enter</button>
           </div>
         </div>
@@ -79,32 +101,10 @@
       </div>
     </div>
 
-    <div class="links-and-rules">
-
-      <div id="rules-modal" class="modal hidden">
-        <div>
-          <p>
-            The goal is to identify as many words as possible while meeting the 
-            following criteria:
-          </p>
-          <ul>
-            <li>The word must be at least four letters long.</li>
-            <li>The word must include the central letter.</li>
-            <li>Letters can be repeated.</li>
-          </ul>
-          <p>
-            Click on the letters you would like to add to the correct word.
-            Click "submit" to add to the "correct words" list.
-            Click "shuffle" to see a different arrangement of letters.
-          </p>
-          <button id="rules-close-button">Close</button>
-        </div>
-      </div>
-
+    <div class="new-game-and-links">
       <div>
         <button id="new-game-btn">New Game</button>
       </div>
-
           
       <div id="nav" class="nav-links">
         <ul class="nav-icons">

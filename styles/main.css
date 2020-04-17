@@ -41,17 +41,21 @@ h1 {
   padding-top: 25px;
 }
 
-.mute-button {
+.score-div {
   width: 20%;
-  padding-left: 30px;
+  padding-left: 22px;
 }
 
-.submit {
+.score-title {
+  color: #8ee4af; 
+}
+
+.rules-mute {
   display: flex;
   flex-direction: row;
   width: 20%;
-  justify-content: space-around;
-  padding-left: 20px;
+  justify-content: space-between;
+  padding-right: 38px;
 }
 
 .current-word-div {
@@ -79,7 +83,7 @@ h1 {
   width: 150px;
   height: 30px;
   font-size: 20px;
-  color: #8ee4af
+  color: #8ee4af;
 }
 
 
@@ -93,16 +97,20 @@ h1 {
 .left-panel {
   width: 20%;
   font-size: 12px;
-  text-align: center;
+  text-align: left;
 
 }
 
 .level{
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   height: 50px;
   padding: 10px;
+  /* border: 1px solid white; */
+}
+
+.level-title {
+  color: #8ee4af;
 }
 
 .score {
@@ -111,6 +119,7 @@ h1 {
   justify-content: space-between;
   height: 50px;
   padding: 10px;
+  text-align: left;
   /* margin-bottom: 25px; */
 }
 
@@ -145,7 +154,7 @@ h1 {
   margin: 0px 5px;
   text-align: center;
   border-radius: 50%;
-  border: 3px solid #ffe198;
+  /* border: 3px solid #ffe198; */
 }
 
 .req {
@@ -154,6 +163,7 @@ h1 {
   height: 60px;
   font-size: 26px;
   font-weight: bold;
+  border: 3px solid #8ee4af;
 }
 
 .opt {
@@ -162,6 +172,7 @@ h1 {
   height: 50px;
   font-size: 20px;
   font-weight: bold;
+  border: 3px solid #ffe198;
 }
 
 .shuffle-newgame {
@@ -178,7 +189,7 @@ h1 {
   margin-right: 10px;
 }
 
-.links-and-rules {
+.new-game-and-links {
   display: flex;
   flex-direction: column;
   align-items: center;
