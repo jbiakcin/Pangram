@@ -147,21 +147,6 @@ Game.prototype.playGame = function playGame() {
 
   //start a new game
   document.getElementById("new-game-btn").onclick = function newGame() {
-    
-    // swal({
-    //   title: "Are you sure?",
-    //   type: "warning",
-    //   showCancelButton: true,
-    //   confirmButtonColor: '#DD6B55',
-    //   confirmButtonText: 'Yes, I am sure!',
-    //   cancelButtonText: "No, cancel it!", 
-    //   closeOnConfirm: false,
-    //   closeOnCancel: false
-    // }).then(
-    //   function () { location.reload() },
-    //   function () { return false; });
-
-
     if (window.confirm("Are you sure you want to start a new game?")) {
     location.reload();
     }

@@ -1,7 +1,6 @@
 .game-canvas {
   display: flex;
   flex-direction: column;
-  /* background-color: #fff5d7; */
   background-color: #d3d3d3;
   align-items: center;
   justify-content: center;
@@ -15,8 +14,6 @@
   box-sizing: border-box;
   width: 600px;
   height: 600px;
-  /* border: 1px solid black; */
-  /* background-color: #ff5e6c; */
   background-color: black;
   border-radius: 5px;
   box-shadow: 0 3px 6px 0 rgba(0,0,0,0.25);
@@ -28,7 +25,6 @@ h1 {
   font-weight: bold;
   font-size: 40px;
   color: white;
-  /* color: #feb300; */
   letter-spacing: .25em;
   -webkit-text-stroke-width: 2px;
     /* -webkit-text-stroke-color: #feb300; */
@@ -74,8 +70,8 @@ h1 {
 
 #delete-btn {
   border: none;
-  background: none;
   width: 10%;
+  font-size: 15px;
 }
 
 #current-word {
@@ -166,6 +162,10 @@ h1 {
   border: 3px solid #8ee4af;
 }
 
+#required-letter:hover {
+  background-color: #ffe198;
+}
+
 .opt {
   color: #ffe198;
   width: 50px;
@@ -173,6 +173,30 @@ h1 {
   font-size: 20px;
   font-weight: bold;
   border: 3px solid #ffe198;
+}
+
+#first-letter:hover {
+  background-color: #8ee4af;
+}
+
+#second-letter:hover {
+  background-color: #8ee4af;
+}
+
+#third-letter:hover {
+  background-color: #8ee4af;
+}
+
+#fourth-letter:hover {
+  background-color: #8ee4af;
+}
+
+#fifth-letter:hover {
+  background-color: #8ee4af;
+}
+
+#sixth-letter:hover {
+  background-color: #8ee4af;
 }
 
 .shuffle-newgame {
@@ -232,9 +256,3 @@ h1 {
   padding: 20px;
 }
 
-.swal-title {
-  margin: 0px;
-  font-size: 16px;
-  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.21);
-  margin-bottom: 28px;
-}

@@ -25,8 +25,14 @@
 }
 
 .swal-modal {
-  background-color: rgba(63,255,106,0.69);
-  border: 3px solid white;
+  background-color: rgba(0,0,0,0.5);
+  /* background-color: rgba(63,255,106,0.69); */
+  border: 3px solid grey;
+  width: 200px;
+}
+
+.swal-title {
+  color: grey;
 }
 
 .swal-button {
