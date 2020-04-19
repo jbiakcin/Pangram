@@ -1,0 +1,8 @@
+#myCanvas {
+  position: absolute;
+  bottom: 15px;
+  top: auto;
+  left: 15px;
+  z-index: 1;
+  visibility: hidden;
+}

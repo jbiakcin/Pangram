@@ -218,7 +218,7 @@ Game.prototype.playGame = function playGame() {
         swal({
           title: "Pangram!!!!!",
           icon: "success",
-          type: "info",
+          buttons: false,
           timer: 1000
         });
       }
