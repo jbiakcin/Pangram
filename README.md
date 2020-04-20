@@ -1,5 +1,8 @@
 ## Overview
 Pangram is a game where a player is given 7 letters, and he/she will make as many words as possible.  Words must have at least a length of 4 letters, and there is a required letter player must use.
+
+[Pangram's Live Site](https://jbiakcin.github.io/Pangram/)
+
 ![](images/pangram_screenshot.png)
 
 ## Technologies
