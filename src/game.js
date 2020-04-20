@@ -11,7 +11,7 @@ function Game () {
   this.level = "n00b";
 }
 
-Game.prototype.populate = function populate() {
+Game.prototype.populate = function () {
   document.getElementById("required-letter").innerText = this.reqLetters[0];
   document.getElementById("first-letter").innerText = this.optLetters[0];
   document.getElementById("second-letter").innerText = this.optLetters[1];
@@ -56,7 +56,14 @@ Game.prototype.animate = function () {
   }
 }
 
-Game.prototype.updateScore = function updateScore() {
+Game.prototype.titleJump = function () {
+  let h1Letters = document.getElementsByClassName("h1");
+  for (let i = 0; i < h1Letters.length; i++) {
+    h1Letters[i].classList.toggle("jump");
+  }
+}
+
+Game.prototype.updateScore = function () {
   if (this.currentWord.length === 4) {
     this.score += 3;
   } else if (this.currentWord.length === 5) {
@@ -70,7 +77,7 @@ Game.prototype.updateScore = function updateScore() {
   }
 }
 
-Game.prototype.updateLevel = function updateLevel() {
+Game.prototype.updateLevel = function () {
   if (this.score < 10) {
     this.level = "n00b";
   } else if (this.score >= 10 && this.score < 20) {
@@ -83,6 +90,22 @@ Game.prototype.updateLevel = function updateLevel() {
     this.level = "Mad Skillz";
   } else {
     this.level = "Einstein";
+  }
+}
+
+Game.prototype.addJumpClass = function () {
+  let elements = document.getElementsByClassName("h1");
+  for (let i = 0; i < elements.length; i++) {
+      elements[i].classList.add("jump");
+  }
+}
+
+Game.prototype.removeJumpClass = function () {
+  let elements = document.getElementsByClassName("h1");
+  for (let i = 0; i < elements.length; i++) {
+    if (elements[i].classList.contains("jump")) {
+      elements[i].classList.remove("jump");
+    }
   }
 }
 
@@ -212,6 +235,7 @@ Game.prototype.playGame = function playGame() {
       const uniqueArray = [...new Set(game.currentWord)]
       if (uniqueArray.length === 7) {
         game.score += 15;
+        game.titleJump();
         if (this.getAttribute("muted") === "false") {
           playSound('sounds/applause8.mp3');
         }
