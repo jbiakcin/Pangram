@@ -23,6 +23,13 @@ Game.prototype.populate = function () {
   document.getElementById("level").innerText = this.level;
   document.getElementById("num-correct-words").innerText = this.correctWords.length;
   document.getElementById("current-word").innerText=this.currentWord.join("");
+  // debugger;
+  for (let i = 0; i < this.currentWord.length; i++) {
+    if (this.reqLetters.includes(this.currentWord[i])) {
+      this.currentWord[i].style.color = "#8ee4af"
+    }
+    
+  }
 }
 
 Game.prototype.updateCorrectWords = function () {
@@ -58,10 +65,33 @@ Game.prototype.animate = function () {
 
 Game.prototype.titleJump = function () {
   let h1Letters = document.getElementsByClassName("h1");
+
   for (let i = 0; i < h1Letters.length; i++) {
     h1Letters[i].classList.toggle("jump");
   }
+
+  setTimeout(function() {
+    for (let i = 0; i < h1Letters.length; i++) {
+      h1Letters[i].classList.toggle("jump");
+    }
+  }, 3000);
 }
+
+// Game.prototype.addJumpClass = function () {
+//   let elements = document.getElementsByClassName("h1");
+//   for (let i = 0; i < elements.length; i++) {
+//       elements[i].classList.add("jump");
+//   }
+// }
+
+// Game.prototype.removeJumpClass = function () {
+//   let elements = document.getElementsByClassName("h1");
+//   for (let i = 0; i < elements.length; i++) {
+//     if (elements[i].classList.contains("jump")) {
+//       elements[i].classList.remove("jump");
+//     }
+//   }
+// }
 
 Game.prototype.updateScore = function () {
   if (this.currentWord.length === 4) {
@@ -92,23 +122,6 @@ Game.prototype.updateLevel = function () {
     this.level = "Einstein";
   }
 }
-
-Game.prototype.addJumpClass = function () {
-  let elements = document.getElementsByClassName("h1");
-  for (let i = 0; i < elements.length; i++) {
-      elements[i].classList.add("jump");
-  }
-}
-
-Game.prototype.removeJumpClass = function () {
-  let elements = document.getElementsByClassName("h1");
-  for (let i = 0; i < elements.length; i++) {
-    if (elements[i].classList.contains("jump")) {
-      elements[i].classList.remove("jump");
-    }
-  }
-}
-
 
 Game.prototype.playGame = function playGame() {
   const letters = document.getElementsByClassName("choose")
