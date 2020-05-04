@@ -302,3 +302,8 @@ h1 {
 .game-title .h1:nth-child(7) {
   color: #ffe198;
 }
+
+#correct-words {
+  overflow: auto;
+  height: 400px;
+}
