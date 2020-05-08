@@ -14,124 +14,125 @@
   <title>Pangram</title>
 </head>
 <body class="game-canvas">
-  <!-- <canvas ></canvas> -->
-  <h1 class="game-title">
-    <span class="h1">P</span>
-    <span class="h1">A</span>
-    <span class="h1">N</span>
-    <span class="h1">G</span>
-    <span class="h1">R</span>
-    <span class="h1">A</span>
-    <span class="h1">M</span>
-  </h1>
-  <section class="game-body">
-    <div class="top-line">
+  <div class="whole-game">
+    <h1 class="game-title">
+      <span class="h1">P</span>
+      <span class="h1">A</span>
+      <span class="h1">N</span>
+      <span class="h1">G</span>
+      <span class="h1">R</span>
+      <span class="h1">A</span>
+      <span class="h1">M</span>
+    </h1>
+    <section class="game-body">
+      <div class="top-line">
 
-      <div class="score-div">
-        <div class="score">
-          <p class="score-title">Score</p>
-          <p id="score"></p>
+        <div class="score-div">
+          <div class="score">
+            <p class="score-title">Score</p>
+            <p id="score"></p>
+          </div>
         </div>
-      </div>
 
-      <div class="current-word-div">
-        <div class="current-word-and-delete">
-          <p id="current-word"></p>
-          <button id="delete-btn"><i class="fas fa-backspace"></i></button>
+        <div class="current-word-div">
+          <div class="current-word-and-delete">
+            <p id="current-word"></p>
+            <button id="delete-btn"><i class="fas fa-backspace"></i></button>
+          </div>
         </div>
-      </div>
 
-      <div class="rules-mute">
-        <p id="rules-button">?</p>
-        <p id="mute-button">Mute</p>
-        <div id="rules-modal" class="modal hidden">
-          <div>
-            <ul class="rules-ul"><p>Rules:</p>
-              <li class="rules-levels-li">The word must be at least four letters long.</li>
-              <li class="rules-levels-li">The word must include the central letter.</li>
-              <li class="rules-levels-li">Letters can be repeated.</li>
-              <li class="rules-levels-li">Extra points for using all seven lettters in a word. </li>
-              <li class="rules-levels-li">Letters can be repeated.</li>
-            </ul>
-            <ul class="levels-ul"><p>Levels:</p>
-              <li class="rules-levels-li">n00b: --------------- &nbsp;&nbsp;0 - 9</li>
-              <li class="rules-levels-li">Solid: --------------- 10 - 19</li>
-              <li class="rules-levels-li">On Fire: ------------ 20 - 29</li>
-              <li class="rules-levels-li">Killer: --------------- 30 - 39</li>
-              <li class="rules-levels-li">Mad Skillz: -------- 40 - 50</li>
-              <li class="rules-levels-li">Einstein: ----------- above 50</li>
-            </ul>
-            
-            <div id="rules-close-button">
-              <button>Close</button>
+        <div class="rules-mute">
+          <p id="rules-button">?</p>
+          <p id="mute-button">Mute</p>
+          <div id="rules-modal" class="modal hidden">
+            <div>
+              <ul class="rules-ul"><p>Rules:</p>
+                <li class="rules-levels-li">The word must be at least four letters long.</li>
+                <li class="rules-levels-li">The word must include the central letter.</li>
+                <li class="rules-levels-li">Letters can be repeated.</li>
+                <li class="rules-levels-li">Extra points for using all seven lettters in a word. </li>
+                <li class="rules-levels-li">Letters can be repeated.</li>
+              </ul>
+              <ul class="levels-ul"><p>Levels:</p>
+                <li class="rules-levels-li">n00b: --------------- &nbsp;&nbsp;0 - 9</li>
+                <li class="rules-levels-li">Solid: --------------- 10 - 19</li>
+                <li class="rules-levels-li">On Fire: ------------ 20 - 29</li>
+                <li class="rules-levels-li">Killer: --------------- 30 - 39</li>
+                <li class="rules-levels-li">Mad Skillz: -------- 40 - 50</li>
+                <li class="rules-levels-li">Einstein: ----------- above 50</li>
+              </ul>
+              
+              <div id="rules-close-button">
+                <button>Close</button>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <div class="main-area">
-      <div class="left-panel">
-        
-        <div class="level">
-          <p class="level-title">Level</p>
-          <p id="level"></p>
-        </div>
-
-      </div>
-
-      <div class="main-game">
-        <div class="letter-area">
-          <div class="row">
-            <button id="first-letter" class="choose opt audio" muted="false"></button>
-            <button id="second-letter" class="choose opt audio" muted="false"></button>
-          </div>
-          <div class="row">
-            <button id="third-letter" class="choose opt audio" muted="false"></button>
-            <button id="required-letter" class="choose req audio" muted="false"></button>
-            <button id="fourth-letter" class="choose opt audio" muted="false"></button>
-          </div>
-          <div class="row">
-            <button id="fifth-letter" class="choose opt audio" muted="false"></button>
-            <button id="sixth-letter" class="choose opt audio" muted="false"></button>
-          </div>
-        </div>
-        <div class="shuffle-enter">
-          <div class="shuffle">
-            <button id="shuffle-btn" class="audio" muted="false"><i class="fas fa-random"></i>&nbsp;&nbsp;Shuffle</button>
-          </div>
-          <div class="enter">
-            <button id="submit-btn" class="audio" muted="false"><i class="far fa-check-square"></i>&nbsp;&nbsp;Enter</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="right-panel">
-        <div class="word-count">
-          <p>Correct Words:&nbsp;&nbsp;</p><p id="num-correct-words"></p>
-        </div>
-        <ul id="correct-words"></ul>
-      </div>
-    </div>
-
-    <div class="links">
-      <div>
-        <button id="new-game-btn">New Game</button>
-      </div>
+      <div class="main-area">
+        <div class="left-panel">
           
-      <div id="nav" class="nav-links">
-        <ul class="nav-icons">
-          <li key="email" class="contact-email"><a href="mailto: jbiakcin@icloud.com"><i class="far fa-envelope"></i></a>
-          </li>
-          <li key="github" class="contact-github"><a href="https://github.com/jbiakcin"><i class="fab fa-github"></i></a>
-          </li>
-          <li key="linkedin" class="contact-linkedin"><a href="https://www.linkedin.com/in/jennie-richardson-1531881a5/"><i
-                class="fab fa-linkedin"></i></a></li>
-          <li key="angellist" class="contact-angellist"><a href="https://angel.co/u/jennie-richardson"><i class="fab fa-angellist"></i></a>
-          </li>
-        </ul>
+          <div class="level">
+            <p class="level-title">Level</p>
+            <p id="level"></p>
+          </div>
+
+        </div>
+
+        <div class="main-game">
+          <div class="letter-area">
+            <div class="row">
+              <button id="first-letter" class="choose opt audio" muted="false"></button>
+              <button id="second-letter" class="choose opt audio" muted="false"></button>
+            </div>
+            <div class="row">
+              <button id="third-letter" class="choose opt audio" muted="false"></button>
+              <button id="required-letter" class="choose req audio" muted="false"></button>
+              <button id="fourth-letter" class="choose opt audio" muted="false"></button>
+            </div>
+            <div class="row">
+              <button id="fifth-letter" class="choose opt audio" muted="false"></button>
+              <button id="sixth-letter" class="choose opt audio" muted="false"></button>
+            </div>
+          </div>
+          <div class="shuffle-enter">
+            <div class="shuffle">
+              <button id="shuffle-btn" class="audio" muted="false"><i class="fas fa-random"></i>&nbsp;&nbsp;Shuffle</button>
+            </div>
+            <div class="enter">
+              <button id="submit-btn" class="audio" muted="false"><i class="far fa-check-square"></i>&nbsp;&nbsp;Enter</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="right-panel">
+          <div class="word-count">
+            <p>Correct Words:&nbsp;&nbsp;</p><p id="num-correct-words"></p>
+          </div>
+          <ul id="correct-words"></ul>
+        </div>
       </div>
-    </div>
-  </section>
+
+      <div class="links">
+        <div>
+          <button id="new-game-btn">New Game</button>
+        </div>
+            
+        <div id="nav" class="nav-links">
+          <ul class="nav-icons">
+            <li key="email" class="contact-email"><a href="mailto: jbiakcin@icloud.com"><i class="far fa-envelope"></i></a>
+            </li>
+            <li key="github" class="contact-github"><a href="https://github.com/jbiakcin"><i class="fab fa-github"></i></a>
+            </li>
+            <li key="linkedin" class="contact-linkedin"><a href="https://www.linkedin.com/in/jennie-richardson-1531881a5/"><i
+                  class="fab fa-linkedin"></i></a></li>
+            <li key="angellist" class="contact-angellist"><a href="https://angel.co/u/jennie-richardson"><i class="fab fa-angellist"></i></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </div>
 </body>
 </html>

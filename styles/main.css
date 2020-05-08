@@ -3,32 +3,51 @@
   flex-direction: column;
   background-color: #d3d3d3;
   align-items: center;
-  justify-content: center;
-  padding: 100px;
+  padding: 50px;
   color: white;
+}
+
+.whole-game {
+  display: flex;
+  width: 900px;
+  height: 900px;
+  /* border: 3px solid red; */
+  margin: 0 auto;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -450px;
+  margin-top: -450px;
+  justify-content: center;
+}
+
+.game-title {
+  /* align-self: center; */
+  /* margin-bottom: 30px; */
+  font-weight: bold;
+  font-size: 40px;
+  letter-spacing: .25em;
+  -webkit-text-stroke-width: 2px;
+  /* -webkit-text-stroke-color: #feb300; */
+  -webkit-text-stroke-color: black;
 }
 
 .game-body {
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
+  /* margin-top: 350px; */
+  margin: 0 auto;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -300px;
+  margin-top: -300px;
   width: 600px;
   height: 600px;
   background-color: black;
   border-radius: 5px;
   box-shadow: 0 3px 6px 0 rgba(0,0,0,0.25);
-}
-
-h1 {
-  align-self: center;
-  padding-bottom: 30px;
-  font-weight: bold;
-  font-size: 40px;
-  color: white;
-  letter-spacing: .25em;
-  -webkit-text-stroke-width: 2px;
-    /* -webkit-text-stroke-color: #feb300; */
-    -webkit-text-stroke-color: black;
 }
 
 .top-line {
