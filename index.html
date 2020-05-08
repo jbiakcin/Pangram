@@ -11,6 +11,10 @@
   <script src="https://kit.fontawesome.com/c40141444b.js" crossorigin="anonymous"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+  <link rel="manifest" href="favicon_io/site.webmanifest">
   <title>Pangram</title>
 </head>
 <body class="game-canvas">
@@ -42,10 +46,13 @@
         </div>
 
         <div class="rules-mute">
-          <p id="rules-button">?</p>
+          <p id="rules-button">Rules</p>
           <p id="mute-button">Mute</p>
           <div id="rules-modal" class="modal hidden">
             <div>
+              <p>Click on the letters to make a word. Press "Enter" to submit word.</p>
+              <p>It's a PANGRAM if you can use all the 7 letters in the word!!!</p>
+            </br>
               <ul class="rules-ul"><p>Rules:</p>
                 <li class="rules-levels-li">The word must be at least four letters long.</li>
                 <li class="rules-levels-li">The word must include the central letter.</li>
@@ -121,15 +128,14 @@
             
         <div id="nav" class="nav-links">
           <ul class="nav-icons">
-            <li key="email" class="contact-email"><a href="mailto: jbiakcin@icloud.com"><i class="far fa-envelope"></i></a>
-            </li>
-            <li key="github" class="contact-github"><a href="https://github.com/jbiakcin"><i class="fab fa-github"></i></a>
-            </li>
-            <li key="linkedin" class="contact-linkedin"><a href="https://www.linkedin.com/in/jennie-richardson-1531881a5/"><i
-                  class="fab fa-linkedin"></i></a></li>
-            <li key="angellist" class="contact-angellist"><a href="https://angel.co/u/jennie-richardson"><i class="fab fa-angellist"></i></a>
-            </li>
+            <li key="email" class="contact-email"><a href="mailto: jbiakcin@icloud.com"><i class="far fa-envelope"></i></a></li>
+            <li key="github" class="contact-github"><a href="https://github.com/jbiakcin"><i class="fab fa-github"></i></a></li>
+            <li key="linkedin" class="contact-linkedin"><a href="https://www.linkedin.com/in/jennie-richardson-1531881a5/"><i class="fab fa-linkedin"></i></a></li>
+            <li key="angellist" class="contact-angellist"><a href="https://angel.co/u/jennie-richardson"><i class="fab fa-angellist"></i></a></li>
           </ul>
+        </div>
+        <div>
+          <p class="developer">Developed by <a href="http://www.jbiakcin.com/">Jennie Richardson</a></p>
         </div>
       </div>
     </section>
