@@ -128,8 +128,10 @@ Game.prototype.playGame = function playGame() {
   document.addEventListener("keydown", makeWord2);
 
   function makeWord2(e) {
-    if (e.keyCode === 13) {
-      debugger;
+    if (e.keyCode === 8) {
+      if (game.currentWord) game.currentWord.pop();
+      game.populate();
+    } else if (e.keyCode === 13) {
       document.getElementById("submit-btn").click();
     } else {
       eventLetter = e.key.toUpperCase();
