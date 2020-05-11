@@ -49,12 +49,20 @@ Game.prototype.updateCorrectWords = function () {
   }
 }
 
-Game.prototype.animate = function () {
+Game.prototype.animateShuffle = function () {
   let optLetters = document.getElementsByClassName("opt");
   for (let i = 0; i < optLetters.length; i++) {
     optLetters[i].classList.toggle("is-moved");
   }
 }
+
+Game.prototype.animateShake = function () {
+  let optLetters = document.getElementsByClassName("opt");
+  for (let i = 0; i < optLetters.length; i++) {
+    optLetters[i].classList.toggle("is-shaken");
+  }
+}
+
 
 Game.prototype.titleJump = function () {
   let h1Letters = document.getElementsByClassName("h1");
@@ -107,71 +115,6 @@ Game.prototype.playGame = function playGame() {
   const reqLetters = game.reqLetters;
   const rulesModal = document.getElementById("rules-modal");
   
-  //#1
-  // for (let i = 0; i < 7; i++) {
-  //   letters[i].onclick = letters[i].onKeyDown = function makeWord() {
-  //     if (this.getAttribute("muted") === "false"){
-  //       playSound('sounds/blop.mp3');
-  //     game.currentWord.push(letters[i].innerText);
-  //     document.getElementById("current-word").innerText = game.currentWord.join("");
-  //      }
-  //   }
-  // };
-  //end #1
-
-
-  //#2
-  // for (let i = 0; i < 7; i++) {
-  //   letters[i].onclick = function makeWord() {
-  //     if (this.getAttribute("muted") === "false"){
-  //       playSound('sounds/blop.mp3');
-  //     game.currentWord.push(letters[i].innerText);
-  //     document.getElementById("current-word").innerText = game.currentWord.join("");
-  //     }
-  //   }
-  // };
-
-  // for (let i = 0; i < 7; i++) {
-  //   letters[i].onkeydown = function makeWord2(e) {
-  //     currLetter = letters[i].innerText;
-  //     let currKeyCode = e.keyCode;
-  //     if (currKeyCode !== currLetter.charCodeAt(0)) return;
-  //     if (this.getAttribute("muted") === "false") {
-  //       playSound('sounds/blop.mp3');
-  //       game.currentWord.push(letters[i].innerText);
-  //       document.getElementById("current-word").innerText = game.currentWord.join("");
-  //     }
-  //   }
-  // }
-  //end #2
-
-  //#3
-  // for (let i = 0; i < 7; i++) {
-  //   letters[i].onclick = letters[i].onkeypress = function(event) {
-  //     if (makeWord(event, letters[i]) === true) {
-  //       if (this.getAttribute("muted") === "false") {
-  //         playSound('sounds/blop.mp3');
-  //         game.currentWord.push(letters[i].innerText);
-  //         document.getElementById("current-word").innerText = game.currentWord.join("");
-  //       }
-  //     }
-  //   }
-  // };
-
-  // function makeWord(event, letter) {
-  //   if (event.type === 'click') {
-  //     return true;
-  //   } else if (event.type === "keypress"){
-  //     currLetter = letter.innerText;
-  //     eventLetter = event.key.toUpperCase();
-  //     if (eventLetter === currLetter) return true;  
-  //   } else {
-  //     return false;
-  //   }
-  // }
-  //end #3
-
-  //#4
   for (let i = 0; i < 7; i++) {
     letters[i].onclick = function makeWord() {
       if (this.getAttribute("muted") === "false"){
@@ -185,22 +128,33 @@ Game.prototype.playGame = function playGame() {
   document.addEventListener("keydown", makeWord2);
 
   function makeWord2(e) {
-    eventLetter = e.key.toUpperCase();
-    var elems = document.querySelectorAll("*")
-    if (optLetters.includes(eventLetter) || reqLetters.includes(eventLetter)) {
-      currButton = Array.from(elems).find(v => v.innerText === eventLetter)
+    if (e.keyCode === 13) {
+      debugger;
+      document.getElementById("submit-btn").click();
+    } else {
+      eventLetter = e.key.toUpperCase();
+      var elems = document.getElementsByTagName("button");
+      if (optLetters.includes(eventLetter) || reqLetters.includes(eventLetter)) {
 
-      if (currButton.getAttribute("muted") === "false") {
-        playSound('sounds/blop.mp3');
-        game.currentWord.push(eventLetter);
-        document.getElementById("current-word").innerText = game.currentWord.join("");
+        currButton = Array.from(elems).find(v => v.innerText === eventLetter)
+
+        if (currButton.getAttribute("muted") === "false") {
+          playSound('sounds/blop.mp3');
+          game.currentWord.push(eventLetter);
+          document.getElementById("current-word").innerText = game.currentWord.join("");
+        }
+      } else {
+        window.game.animateShake();
+        // swal({
+        //   title: "Not a valid choice.",
+        //   icon: "error",
+        //   buttons: false,
+        //   dangerMode: true,
+        //   timer: 1000
+        // })
       }
     }
   }
-
-  //end #4
-
-  // <a href="#" onclick="myJavascriptFunction()" onkeypress="this.onclick()"></a>
 
   //mute game
   document.getElementById("mute-button").onclick = function muteAudio () {
@@ -234,7 +188,7 @@ Game.prototype.playGame = function playGame() {
       playSound('sounds/shuffle.mp3');
     }
     game.populate();
-    game.animate();
+    game.animateShuffle();
   };
 
   // delete a letter
