@@ -108,8 +108,8 @@ Game.prototype.playGame = function playGame() {
   const rulesModal = document.getElementById("rules-modal");
   
   for (let i = 0; i < 7; i++) {
-    letters[i].onKeyDown = function makeWord(e) {
-    // letters[i].onclick = letters[i].onKeyDown = function makeWord() {
+    // letters[i].onKeyDown = function makeWord(e) {
+    letters[i].onclick = letters[i].onKeyDown = function makeWord() {
       let key = e.keyCode;
       if (key === letters[i].charCodeAt(0)) {
       if (this.getAttribute("muted") === "false"){
