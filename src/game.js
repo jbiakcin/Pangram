@@ -107,15 +107,21 @@ Game.prototype.playGame = function playGame() {
   const reqLetters = game.reqLetters;
   const rulesModal = document.getElementById("rules-modal");
   
-  // for (let i = 0; i < 7; i++) {
-  //   letters[i].onclick = letters[i].onkeydown = function makeWord() {
-  //     if (this.getAttribute("muted") === "false"){
-  //       playSound('sounds/blop.mp3');
-  //     }
-  //     game.currentWord.push(letters[i].innerText);
-  //     document.getElementById("current-word").innerText = game.currentWord.join("");
-  //   }
-  // };
+  for (let i = 0; i < 7; i++) {
+    letters[i].onKeyDown = function makeWord(e) {
+    // letters[i].onclick = letters[i].onKeyDown = function makeWord() {
+      let key = e.keyCode;
+      if (key === letters[i].charCodeAt(0)) {
+      if (this.getAttribute("muted") === "false"){
+        playSound('sounds/blop.mp3');
+      }
+      game.currentWord.push(letters[i].innerText);
+      document.getElementById("current-word").innerText = game.currentWord.join("");
+    }
+    }
+  };
+
+  // <a href="#" onclick="myJavascriptFunction()" onkeypress="this.onclick()"></a>
 
   //mute game
   document.getElementById("mute-button").onclick = function muteAudio () {
@@ -152,7 +158,7 @@ Game.prototype.playGame = function playGame() {
     game.animate();
   };
 
-  //delete a letter
+  // delete a letter
   document.getElementById("delete-btn").onclick = function deleteLetter(){
     game.currentWord.pop();
     game.populate();
