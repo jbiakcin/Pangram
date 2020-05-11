@@ -110,11 +110,11 @@ Game.prototype.playGame = function playGame() {
   for (let i = 0; i < 7; i++) {
     // letters[i].onKeyDown = function makeWord(e) {
     letters[i].onclick = letters[i].onKeyDown = function makeWord() {
-      let key = e.keyCode;
-      if (key === letters[i].charCodeAt(0)) {
+      // let key = e.keyCode;
+      // if (key === letters[i].charCodeAt(0)) {
       if (this.getAttribute("muted") === "false"){
         playSound('sounds/blop.mp3');
-      }
+      // }
       game.currentWord.push(letters[i].innerText);
       document.getElementById("current-word").innerText = game.currentWord.join("");
     }
