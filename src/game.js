@@ -132,7 +132,13 @@ Game.prototype.playGame = function playGame() {
       if (game.currentWord) game.currentWord.pop();
       game.populate();
     } else if (e.keyCode === 13) {
+      const rulesModal = document.getElementById("rules-modal")
+      if (rulesModal.className === "modal") {
+        rulesModal.className = "modal hidden";
+      } else {
       document.getElementById("submit-btn").click();
+      e.preventDefault();
+      }
     } else {
       eventLetter = e.key.toUpperCase();
       var elems = document.getElementsByTagName("button");
@@ -147,13 +153,6 @@ Game.prototype.playGame = function playGame() {
         }
       } else {
         window.game.animateShake();
-        // swal({
-        //   title: "Not a valid choice.",
-        //   icon: "error",
-        //   buttons: false,
-        //   dangerMode: true,
-        //   timer: 1000
-        // })
       }
     }
   }
@@ -216,11 +215,7 @@ Game.prototype.playGame = function playGame() {
   };
 
   document.getElementById("rules-close-button").onclick = function toggleRulesModal() {
-    if (rulesModal.className === "modal") {
       rulesModal.className = "modal hidden";
-    } else {
-      rulesModal.className = "modal"
-    }
   };
 
 

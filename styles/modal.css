@@ -4,18 +4,14 @@
 
 .modal {
   position: absolute;
-  top: 280px;
-  width: 386px;
+  top: 120px;
+  font-size: 12px;
+  width: 400px;
   left: 50%;
   transform: translateX(-50%);
   background-color: #8ee4af;
   border-radius: 5px;
   color: black;
-}
-
-#rules-modal {
-  top: 180px;
-  font-size: 10px;
 }
 
 .rules-ul {
@@ -31,7 +27,7 @@
 
  .rules-levels-li {
   padding-left: 25px;
-  font-size: 10px;
+  font-size: 12px;
 }
 
 #rules-close-button {
