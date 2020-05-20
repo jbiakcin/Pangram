@@ -211,6 +211,38 @@ letters = [
     reqLetters: ["C"],
     optLetters: ["A", "E", "I", "R", "T", "N"]
   },
+  {
+    reqLetters: ["C"],
+    optLetters: ["L", "E", "U", "Y", "T", "N"]
+  },
+  {
+    reqLetters: ["C"],
+    optLetters: ["M", "E", "P", "R", "T", "U"]
+  },
+  {
+    reqLetters: ["O"],
+    optLetters: ["C", "E", "I", "R", "C", "V"]
+  },
+  {
+    reqLetters: ["R"],
+    optLetters: ["D", "E", "I", "G", "O", "P"]
+  },
+  {
+    reqLetters: ["D"],
+    optLetters: ["A", "E", "I", "R", "L", "N"]
+  },
+  {
+    reqLetters: ["R"],
+    optLetters: ["K", "E", "I", "C", "B", "D"]
+  },
+  {
+    reqLetters: ["A"],
+    optLetters: ["G", "I", "N", "Q", "T", "U"]
+  },
+  {
+    reqLetters: ["E"],
+    optLetters: ["M", "P", "I", "R", "T", "D"]
+  },
 ]
 
 module.exports = letters;
