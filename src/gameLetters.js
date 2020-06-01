@@ -271,6 +271,10 @@ letters = [
     reqLetters: ["N"],
     optLetters: ["M", "A", "H", "K", "Y", "G"]
   },
+  {
+    reqLetters: ["E"],
+    optLetters: ["C", "I", "J", "N", "T", "G"]
+  },
 ]
 
 module.exports = letters;
